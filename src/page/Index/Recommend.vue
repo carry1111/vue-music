@@ -2,7 +2,7 @@
   <div>
     <swiper :options="swiperOption">
       <swiper-slide v-for="(item,index) in banners" :key="index">
-        <img :src="item.pic" alt="">
+        <img :src="item.imageUrl" alt="">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -55,6 +55,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import api from '@/api/common/index'
   import axios from 'axios'
   import {mapState} from 'vuex'
   import url from '../../assets/js/api'
@@ -93,13 +94,13 @@
     methods: {
       //获取banner图
       fetchBanner() {
-        axios.get(`${url}/banner`).then(res => {
+        api.getBanner().then(res => {
           this.banners = res.data.banners
         })
       },
       //获取推荐歌单
       fetchRecommendList() {
-        axios.get(`${url}/personalized`).then(res => {
+        api.getRecommendList().then(res => {
           this.recommendList = res.data.result
         })
       },

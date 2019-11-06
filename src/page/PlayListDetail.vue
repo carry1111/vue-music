@@ -125,7 +125,7 @@
       playMusic(id) {
         this.$store.state.showPlayer = true
         function getUrl() {
-          return axios.get(`${url}/music/url?id=${id}`)
+          return axios.get(`${url}/song/url?id=${id}`)
         }
 
         function getDetail() {
@@ -136,9 +136,9 @@
           return axios.get(`${url}/lyric?id=${id}`)
         }
         //获取歌曲信息，并统一存入vuex中
-        axios.all([getUrl(), getDetail(), getLyric()])
-          .then(axios.spread((res1, res2, res3) => {
-            const arr = [res1, res2, res3]
+        axios.all([getUrl(), getDetail()])
+          .then(axios.spread((res1, res2) => {
+            const arr = [res1, res2]
             this.$store.dispatch('curPlayMusic', arr)
             this.$store.dispatch('switchPlaying', true)
             this.$store.dispatch('playList', this.playListPanel)

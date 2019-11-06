@@ -7,6 +7,7 @@ import store from './store'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'  //引入样式
 
 Vue.use(VueAwesomeSwiper)
 

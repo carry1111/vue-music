@@ -11,7 +11,7 @@ export default {
     const obj = {
       url: arr[0].data.data[0].url,
       detail: arr[1].data.songs[0],
-      lrc: arr[2].data.lrc
+      // lrc: arr[2].data.lrc
     }
     state.curPlayMusic = obj
   },
